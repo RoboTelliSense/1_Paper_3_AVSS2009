@@ -1,0 +1,744 @@
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+
+%\usepackage{avss}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\usepackage{multirow}
+
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete 
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+%\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+
+% Add the compsocconf option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{ROBUST SURVEILLANCE ON COMPRESSED VIDEO: UNIFORM PERFORMANCE FROM HIGH TO LOW BITRATES}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+
+\author{\IEEEauthorblockN{Salman Aslam, Christopher Barnes}
+\IEEEauthorblockA{School of Electrical and Computer Engineering\\
+Georgia Institute of Technology\\
+Atlanta GA, USA\\
+msalman, cbarnes@ece.gatech.edu}
+\and
+\IEEEauthorblockN{Aaron Bobick}
+\IEEEauthorblockA{College of Computing\\
+Georgia Institute of Technology\\
+Atlanta GA, USA\\
+afb@cc.gatech.edu}
+}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+%------------------------------------------------------------------------------------------
+\begin{abstract}
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this paper, we discuss methods to enable robust surveillance on compressed video.  We show that if the particular surveillance algorithm that is likely to be run on the compressed video is known apriori, then stpdf can be taken during the encoding process to facilitate the performance of the algorithm.  We show that by performing signal processing on the input video signal before it is encoded, or by adaptively changing the parameters of the encoding process, we can make the resulting signal more robust to degradations in the encoding process.  The result is better and more consistent tracking on the compressed video from high to low bitrates, but with some loss in PSNR.  We demonstrate the validity of this approach for Mean Shift tracking running on MPEG-4 coded video.  
+\end{abstract}
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{INTRODUCTION}
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\subsection{Problem statement}
+%-----------------------------
+Figure~\ref{fig:ProblemStatement} presents the overall framework we are interested in.  It can be summarized in three points (a) A video surveillance signal from a given source needs to be transmitted to another point or stored in some medium. (b) Due to bandwidth or storage limitations, we would like to encode the video. (c) The coding should be done in a way that target information extracted from the decoded video is as close as possible to target information extracted from the original uncompressed video.  We would like this to be true at different bitrates.
+
+\subsection{Motivation}
+%----------------------
+In surveillance applications, it is common for video cameras to send back compressed video to a central server for analysis.  Although there is a rising trend in edge processing, i.e. processing at the camera itself, the need to transmit compressed video to a central server for human consumption and/or data fusion from other sensors still remains important.  The increasing trend of using live webcams streaming data over the internet remains relevant to our discussion since these webcams also encode data before transmission.  In satellite imaging applications, compressed video downlinked to ground stations may be used for surveillance, or analyzed for atmospheric and geological patterns, disaster zone identification, vegetation analysis or structure classification. 
+
+			%figure: problem statement
+			\begin{figure}				
+					\includegraphics[width=.45\textwidth]{figs/ProblemStatement.pdf}
+					\caption{Information in the decoded video must be close in some sense to information in the original video.}
+					\label{fig:ProblemStatement}
+			\end{figure}
+
+\subsection{Possible Approaches}
+%-------------------------------
+In the applications mentioned above, and in hundreds of other applications where it is important to preserve some measure of information in the video signal other than visual quality, the goal of coding video can be addressed in the following ways,
+
+\begin{itemize}
+
+\item \textbf{Specific codec for every application.} Design a video codec tailored for each application that efficiently concentrates bits where they matter most.  The disadvantages in terms of cost, maintainability, upgradeability and cross operability are obvious.
+
+\item \textbf{Standard codec with metadata support.}  Provide a general framework for transmitting both surveillance video and target information extracted from the video in a coherent and integrated manner as part of the codec specification.  This approach was adopted by MPEG in 1993 and resulted in MPEG-4.  However, in practice, the scene construction and description features of this standard did not gain much acceptance.
+
+\item \textbf{Standard codec.}  Use standard universally accepted rectangular based MPEGx and H.26x codecs and change their parameters during the encoding process to preserve the desired information.  We call this approach $VarPar$ (variable parameter) compensation.
+
+\item \textbf{Signal processing on the input.}  In places where access to the encoding process is not available or not desired, apply signal processing on the input signal to make it more robust to degradations during the encoding process.  We call this approach $SigProc$ (signal processing) compensation.
+
+
+
+\end{itemize}
+
+			%figure: general solution
+			\begin{figure}
+						\centering
+						\includegraphics[width=.40\textwidth]{figs/SolutionThroughSigProc.pdf}
+						\caption{$SigProc$ (signal processing) compensation.}
+						\label{fig:SolutionThroughSigProc}
+			\end{figure}
+
+			\begin{figure}
+						\centering
+						\includegraphics[width=.33\textwidth]{figs/SolutionThroughVarPar.pdf}
+						\caption{Encoder $VarPar$ (variable parameter) compensation.}
+						\label{fig:SolutionThroughVarPar}
+			\end{figure}
+
+			%experimental setup
+			\begin{figure}
+					\includegraphics[width=.35\textwidth]{figs/ExperimentalSetup.pdf}
+					\caption{Experimental setup.}
+					\label{fig:ExperimentalSetup}
+			\end{figure}
+
+We are not interested in the first two methods discussed above due to their limitations.  We now discuss $SigProc$ and $VarPar$ compensation in the following paragraphs.
+
+\subsubsection{SigProc Compensation}
+This approach is depicted in Figure~\ref{fig:SolutionThroughSigProc}.  Very little literature is available on this approach.  The idea here is to apply signal processing to the input signal so that it better preserves target information as it undergoes distortions in the encoding process.  $SigProc$ can be applied in two ways, (a) No inverse signal processing required after the decoder: If signal processing is applied while maximizing a similarity measure between input and output, then the output signal will remain intelligible to a human observer.  This is important where no further processing after the decoding process is desired.  (b) Inverse signal processing required: If human consumption of the decoded signal is not required, or where extra processing after the decoding step is possible, one may apply signal processing so that target information is encoded at lower frequencies.
+
+
+More formally, $SigProc$ can be cast as a calculus of variations problem where we seek to minimize the functional J(g)
+
+\begin{equation}
+\label{eq:CalcOfVarFormulation}
+J(g)=\int\int_D \left\|f(I) - f(\hat{g}(I)) \right\|  +  \left\|p(I) - p(\hat{g}(I)) \right\| dxdy
+\end{equation}
+
+$\hat{g}(I)$ can be written as $C^{-1}(C(I(x,y))$ where $C(x,y)$ is 
+
+\begin{equation}
+\label{eq:DCT}
+C(x,y) = \sum_{x_0}\sum_{y_0}T(Q(D(I)))\delta(x-kx_0, y-ky_0)
+\end{equation}
+
+Here $I(x,y)$ is the original image.  $D(x,y)$ is the DCT transform of a $kxk$ block of image data or motion compensated residuals.  The value of $k$ is normally 8.  $Q(x,y)$ is a quantization function and can depend on quantization matrices and the quantization parameter $Qp$. $T(x,y)$  is a thresholding function.  We omit the lossless parts of the compression system, such as Huffman Coding, Arithmetic Coding etc, since they do not result in distortions in our setup.  There is an additional element of numerical precision errors, particularly in the DCT setup that we choose to ignore for simplicity.  $f(x,y)$ is the surveillance algorithm that we're interested in.
+
+Equation~\ref{eq:CalcOfVarFormulation} then says that over the space of all transformations that can be applied to the input image $I(x,y)$, we would like to find the signal processing function $g(x,y)$ that minimizes the distance between the output of a surveillance algorithm $f(x,y)$ running on the original image and running on the compressed image, and that also maximizes some similarity measure $p(x,y)$ of the image.  It is clear that Equation~\ref{eq:CalcOfVarFormulation} is not differentiable due to the discontinuities on the $kxk$ DCT block boundaries.  However, even if numerical schemes are resorted to, the Euler Lagrange approach to solving the variational problem is a necessary but not sufficient condition for global optimality.  In such cases, one can resort to finding a signal processing function $g(x,y)$ either experimentally through Monte Carlo simulations, or using prior knowledge of the nature of the surveillance algorithm we are interested in.
+
+%PETS2001
+\begin{figure}[t]
+			\centering
+
+			\subfigure[Ground truth]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2001_Frame592_GroundTruth.pdf}
+					\label{fig:PETS2001_Frame592_Ground}
+				}
+			\subfigure[Baseline]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2001_Frame592_Baseline.pdf}
+					\label{fig:PETS2001_Frame592_Base}
+				}
+			\subfigure[SigProc1]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2001_Frame592_OutSigProc.pdf}
+					\label{fig:PETS2001_Frame592_SigProc}
+				}
+			\subfigure[SigProc2]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2001_Frame592_OutSigProc2.pdf}
+					\label{fig:PETS2001_Frame592_SigProc2}
+				}
+				
+			\subfigure[VarPar]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2001_Frame592_OutVarPar.pdf}
+					\label{fig:PETS2001_Frame592_VarPar}
+				}	
+			\caption{PETS2001.  The baseline tracker looses track of the woman as she emerges from behind a car whose color distribution has some elements close to her own distribution.} 	
+			\label{fig:PicsPETS2001}	
+\end{figure}
+
+%PETS2007
+\begin{figure}[t]
+			\centering
+
+			\subfigure[Ground truth]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2007_Frame340_GroundTruth.pdf}
+					\label{fig:PETS2007_Frame340_Ground}
+				}
+			\subfigure[Baseline]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2007_Frame340_Baseline.pdf}
+					\label{fig:PETS2007_Frame340_Base}
+				}
+			\subfigure[SigProc1]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2007_Frame340_OutSigProc.pdf}
+					\label{fig:PETS2007_Frame340_SigProc}
+				}
+			\subfigure[SigProc2]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2007_Frame340_OutSigProc2.pdf}
+					\label{fig:PETS2007_Frame340_SigProc2}
+				}
+				
+			\subfigure[VarPar]
+				{
+					\includegraphics[width=.22\textwidth]{figs/PETS2007_Frame340_OutVarPar.pdf}
+					\label{fig:PETS2007_Frame340_VarPar}
+				}	
+			\caption{PETS2007.  The baseline tracker looses track of the blue bag as it emerges from behind a man wearing a blue sweater.  It then locks on to a blue tie. }
+			\label{fig:PicsPETS2007} 		
+\end{figure}
+
+\subsubsection{VarPar Compensation}
+This approach is depicted in Figure~\ref{fig:SolutionThroughVarPar}.  In this approach, the encoding parameters are adjusted adaptively to preserve target information.  $VarPar$ compensation has been used in the literature for surveillance algorithms that rely on motion.  In such cases, researchers have preferentially encoded areas with high motion, or in more sophisticated cases, preferentially encoded the foreground~\cite{2005_CNF_SceneAnalysisForJPEG2000_Meessen}. 
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{EXPERIMENTS}
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+After having discussed the general approaches to our problem, we now discuss the specific approach that we use in this paper.  The surveillance algorithm that we use is Mean Shift tracking.  Before proceeeding with other specifics of our approach, we give an overview of this algorithm.
+
+\subsection{Theory: Mean Shift Tracking}
+%---------------------------------------
+The goal of the Mean Shift algorithm is to find the peak of a distribution over time  \cite{2003_JNL_TRKkernel_Comaniciu}.  An initial reference histogram of the object to be tracked is created in some desired space.  After creating the initial histogram, subsequent images are backprojected on this histogram to create a likelihood function.  A window placed over the initial location of the target object is then placed on this backprojected window and moved to a new place as computed by the mean shift vectors, $x_c$ and $y_c$.  If a rectangular kernel for the window is used \cite{1998_JNL_FaceObjectTracking_Bradski} \cite{2008_BOOK_OpenCV_Bradski}, then the mean shift computations reduce to finding the zeroth and first order image moments as shown in Equation~\ref{eq:MeanShiftEquations}.  This step is repeated until the mean shift vectors converge.  
+
+\begin{align}
+	\label{eq:MeanShiftEquations}
+	M_{00}&=\sum_x\sum_yI(x,y)\notag\\
+	M_{10}&=\sum_x\sum_yxI(x,y)\notag\\
+	M_{01}&=\sum_x\sum_yyI(x,y)\\
+	x_c&=\frac{M_{10}}{M_{00}}\notag \\
+	y_c&=\frac{M_{01}}{M_{00}} \notag
+\end{align}
+
+			\begin{figure}[t]				%accuracy, temporal
+				\centering
+				\subfigure[PETS2001]
+					{
+						\includegraphics[width=.35\textwidth]{figs/AccuracyTemporal_PETS2001.pdf}
+						\label{fig:AccuracyTemporal_PETS2001}
+					}
+				\subfigure[PETS2007]
+					{
+						\includegraphics[width=.35\textwidth]{figs/AccuracyTemporal_PETS2007-1.pdf}
+						\label{fig:AccuracyTemporal_PETS2007}
+					}
+				\caption{Tracking accuracy over time.} 						
+				\label{fig:AccuracyTemporal}
+			\end{figure}
+			
+			
+
+			\begin{figure}[t]				%PSNR, temporal
+				\centering
+				
+				\subfigure[PETS2001]
+					{
+						\includegraphics[width=.35\textwidth]{figs/PSNRtemporal_PETS2001.pdf}
+						\label{fig:PSNRtemporal_PETS2001}
+					}
+				\subfigure[PETS2007]
+					{
+						\includegraphics[width=.35\textwidth]{figs/PSNRtemporal_PETS2007-1.pdf}
+						\label{fig:PSNRtemporal_PETS2007}
+					}		
+				\caption{PSNR in $ROI$ over time.} 		
+				\label{fig:PSNRtemporal}
+			\end{figure}	
+
+We now discuss the components of our experimental setup, as given in Figure~\ref{fig:ExperimentalSetup}.
+
+\subsection{Input Data}
+%----------------------
+For the input data, we used image sequences from two standard databases, PETS2001 and PETS2007 (Performance Evaluation of Tracking and Surveillance).  In PETS2001, we track a person in a sparse background as she gets occluded by a car with a similar color distribution.  In PETS2007, we track a bag in a dense environment.  These two scenarios were chosen since they are quite different from each other and would provide a better test of our approach.  Additionally, in both cases, the tracked object is occluded by another object with a similar color distribution.  This of course, presents one of the most significant challenges in tracking applications.   
+
+\subsection{Surveillance algorithm}
+%----------------------------------
+As mentioned earlier, the specific surveillance algorithm that we chose to experiment with is the Mean Shift tracker.  The implementation used is from the standard open source Intel OpenCV library.  The feature distribution used is the hue component of the HSV space.  Convergence takes 3 to 4 stpdf on the original and compensated images and up to 8 to 9 stpdf for the baseline images.  We manually initialize the object to be tracked.  In the case of static cameras, this initialization could come from the motion mask of a background modeling process such as the Multi Gaussian algorithm~\cite{2000_JNL_MG_Stauffer},~\cite{2005_JNL_SURVEYchangeDetection_Radke}.  However, we make no assumptions about this step, and our approach is equally valid for moving cameras. 
+
+\subsection{Codec}
+%-----------------
+The codec used is a standard MPEG-4 Part 2 Visual codec obtained from ISO.  However, our approach is equally valid for all rectangular based MPEGx and H.26x codecs.  
+
+			\begin{figure}[t]				%accuracy, all Qp
+				\centering
+				\subfigure[PETS2001]
+					{
+						\includegraphics[width=.30\textwidth]{figs/AccuracyAllQp_PETS2001.pdf}
+						\label{fig:AccuracyAllQp_PETS2001}
+					}
+				\subfigure[PETS2007]
+					{
+						\includegraphics[width=.30\textwidth]{figs/AccuracyAllQp_PETS2007-1.pdf}
+						\label{fig:AccuracyAllQp_PETS2007}
+					}
+				\caption{Tracking accuracy at different values of $Qp$.} 						
+				\label{fig:AccuracyAllQp}
+			\end{figure}
+			
+			
+\subsection{Compensation Methods}  
+%---------------------------------
+The compensation methods, as discussed above were $SigProc$ and $VarPar$, both applied independently.  $SigProc$ was applied in a way to maximize similarity with the input image so that no further processing would be required after the decoder.  Both $SigProc$ and $VarPar$ were applied inside a window, called $ROI$ as explained later in the paper.
+
+\subsection{Outputs}
+%-------------------
+\begin{itemize}
+
+\item \underline {Ground truth output:}  Ground truth tracking output was obtained by taking an input image and running Mean Shift tracking on it.
+
+\item \underline {Baseline output:}  Baseline tracking output was obtained was obtained by taking an input image, coding it using MPEG-4 Intra coding, and then running Mean Shift tracking on the coded image.  Intra coding was used without any loss of generality.  The quality of the encoded video was controlled by varying the value of the quantization parameter $Qp$ over all possible values, i.e. 1 to 31.  Quantization matrices were not adjusted.  
+
+\item \underline{$SigProc 1$ and $SigProc 2$ outputs:}  $SigProc1$ and $SigProc2$ outputs were obtained by taking an input image, running Mean Shift segmentation and Pyramidal segmentation respectively as the signal processing algorithms, MPEG-4 encoding the segmented image, running Mean Shift tracking, comparing performance with ground truth, and then iterating over segmentation parameters to produce tracking results as close as possible to the ground truth.  All this was done automatically.  The implementation of Mean Shift segmentation and Pyramidal segmentation was from Intel OpenCV library.  At this stage, we made two decisions.  First, the class of the signal processing algorithm to be used, i.e. segmentation.  Second, the particular algorithm within the class, i.e. Mean Shift segmentation and Pyramidal segmentation.   The reason for choosing Mean Shift segmentation was to produce a robust backprojection image for Mean Shift tracking.  The reason for choosing Pyramidal segmentation was that it produces less variance in the chroma channels than Mean Shift segmentation.  We did not segment the whole image, but only a window placed around the object of interest.  This window is different from the Mean Shift tracker window and is called the Region of Interest, or $ROI$ hereafter, for clarity.  $ROI$ was initialized in the same step as the Mean Shift tracker, and from there on, its position was updated automatically.  
+
+\item \underline{$VarPar$ output:}  $VarPar$ tracking output was obtained by taking an input image, MPEG-4 encoding it, running Mean Shift tracking on the coded image, comparing performance with ground truth, and then iterating over $Qp$ inside $ROI$ to get tracking results as close as possible to the ground truth.  The $Qp$ for the rest of the image outside $ROI$ was kept same as for the baseline sequence.
+
+\end{itemize}	
+
+			\begin{figure}[t]				%accuracy, PSNR all Qp
+				\centering
+				\subfigure[PETS2001]
+				{	
+					\includegraphics[width=.30\textwidth]{figs/PSNRAllQp_PETS2001.pdf}
+					\label{fig:PSNRAllQp_PETS2001}
+				}				
+				\subfigure[PETS2007]
+				{	
+					\includegraphics[width=.30\textwidth]{figs/PSNRAllQp_PETS2007-1.pdf}
+					\label{fig:PSNRAllQp_PETS2007}
+				}
+				\caption{PSNR in $ROI$ at different values of $Qp$.}
+				\label{fig:PSNRAllQp}
+			\end{figure}
+
+\subsection{Metrics}  
+%-------------------
+We compare tracking performance for $SigProc1$, $SigProc2$ and $VarPar$ with baseline tracking output using 3 metrics:
+
+\begin{itemize}
+
+\item \underline{Performance.}  This is a comparison with baseline Euclidean distance from ground truth (of bounding box center, measured in pixels).
+
+\item \underline{Quality.}  This is a comparison with baseline PSNR inside $ROI$.
+
+\item \underline{Bandwidth/bitrate.}  This is a comparison with baseline Intra coded file size.
+
+\end{itemize}
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{RESULTS}
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+%accuracy (3D)
+%-------------
+			\begin{figure}[t]
+				\centering
+				\subfigure[PETS2001]
+				{	
+					\includegraphics[width=.22\textwidth]{figs/Accuracy_PETS2001_3D.pdf}
+					\label{fig:Accuracy_PETS2001_3D}
+				}
+				\subfigure[PETS2007]
+				{	
+					\includegraphics[width=.22\textwidth]{figs/Accuracy_PETS2007_3D.pdf}
+					\label{fig:Accuracy_PETS2007_3D}
+				}
+				\caption{$VarPar$, tracking accuracy at different values of $Qp$.}
+				\label{fig:3D}
+			\end{figure}
+
+Figures~\ref{fig:PicsPETS2001} and~\ref{fig:PicsPETS2007} show situations in the tracking sequence where the baseline tracker is thrown off track while $SigProc1$, $SigProc2$ and $VarPar$ hold track.  The target bounding box is shown in red, while the $ROI$ boundary is shown in yellow.  
+
+Figures~\ref{fig:AccuracyTemporal} and~\ref{fig:PSNRtemporal} plot accuracy and PSNR results over time for select values of $Qp$.  Figures~\ref{fig:AccuracyAllQp} and~\ref{fig:PSNRAllQp} give overall accuracy and PSNR results over time for all values of $Qp$.  Averages of these values are given in Tables~\ref{tab:Summary} and~\ref{tab:PSNRsummary}.  In all these cases, the bitrate drops at higher values of $Qp$ as expected.  However, for $SigProc1$ and $SigProc2$ the bitrate is on the order of 0.99 of the baseline bitrate while $VarPar$ bitrate is on the order of 0.97 of the baseline bitrate.  Detailed bitrate plots are not presented due to lack of space.  
+
+The presented results show that over all values of $Qp$ for PETS2001 and PETS2007, $SigProc1$, $SigProc2$ and $VarPar$ produce better tracking results than the baseline 95.2\%, 96.8\% and 100\% of the time respectively.  The tracking accuracy improvement is 1.9, 3.1 and 28 times respectively, while the decrease in $ROI$ PSNR is 3.6, 2.3 and 8.0 dB respectively.  For the few cases where $SigProc1$, $SigProc2$ and $VarPar$ don't do as well as the baseline, the reason is that part of the object being tracked and part of the occluding object end up in the same macroblock, and are coded uniformly throwing the tracker of course.  This presents a fundamental challenge in block based codecs since the block boundaries are not aligned with the surveillance algorithm boundaries.
+  
+Figure~\ref{fig:3D} shows the tracking accuracy of $VarPar$ as it iterates over values of $Qp$ in $ROI$.  The best value of $Qp$ is picked.  It is clear that the tracking doesn't necessarily get worse at higher values of $Qp$, which is interesting.  
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{Tracking Accuracy} \\
+\hline
+Dataset & Baseline & $SigProc1$ & $SigProc2$  & $VarPar$\\ 
+\hline
+\multirow{1}{*}{PETS2001} 
+	&25.1 &16.2 &  12.3 &  1.002\\
+ \hline
+ \multirow{1}{*}{PETS2007} 
+	&30.5 &12.7 &  5.9 &  1.001\\
+\hline
+\multirow{1}{*}{Average}
+& 27.8 & 14.5 & 9.1 & 1.0 \\ 
+\hline
+\multirow{1}{*}{Factor}
+& - & 1.9 & 3.1 & 28.0 \\ 
+\hline
+\end{tabular}
+\caption{Target euclidean distances in pixels.}
+\label{tab:Summary}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\multicolumn{5}{|c|}{PSNR} \\
+\hline
+Dataset & Baseline & $SigProc1$ & $SigProc2$  & $VarPar$\\ 
+\hline
+\multirow{1}{*}{PETS2001} 
+	&33.4 &30.2 &  31.2 &  22.4\\
+ \hline
+ \multirow{1}{*}{PETS2007} 
+	&31.8 &27.7 &  29.4 &  26.8\\
+\hline
+\multirow{1}{*}{Average}
+& 32.6 & 29.0 & 30.3 & 24.6 \\ 
+\hline
+\multirow{1}{*}{Diff.}
+&  & -3.6 & -2.3 & -8.0 \\ 
+\hline
+\end{tabular}
+\caption{PSNR in $ROI$.}
+\label{tab:PSNRsummary}
+\end{table}
+
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{CONCLUSIONS}
+%--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Our goal in this paper was to understand how to make a video signal robust to degradations in the encoding process with respect to target information extracted by a surveillance algorithm, and at high to low bitrates.  In this paper, we used the Mean Shift tracker as the surveillance algorithm.  We used three techniques to achieve our goal, two of these related to signal processing and one related to variable encoder parameters.  In all three cases we saw that tracking accuracy was improved at least 95\% of the time, albeit at a loss in PSNR.  Moreover, this was achieved over a wide range of bitrates, ranging from very high to very low.  We saw that the variable encoder parameters techniques produces the best tracking results, but results in highest loss in PSNR.  This is followed by Pyramidal segmentation.  However, Pyramidal segmentation produces the least drop in PSNR.  It is now up to the application at hand to evaluate the tradeoffs. We on our part, will experiment with a broader class of surveillance algorithms, a broader class of compensation schemes, and a larger variety of datasets.
+{\small
+\bibliographystyle{IEEE}
+\bibliography{MyCitations} 
+}
+\end{document}
+
+
